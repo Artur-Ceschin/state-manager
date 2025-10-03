@@ -1,75 +1,84 @@
-# React + TypeScript + Vite
+# JStack State Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern todo list application built with React, TypeScript, Vite, and Tailwind CSS. This project demonstrates state management concepts and best practices for building scalable React applications.
 
-Currently, two official plugins are available:
+## 🚀 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** - UI library
+- **TypeScript** - Type safety and better DX
+- **Vite** - Fast build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Husky** - Git hooks for code quality
+- **Commitlint** - Conventional commits enforcement
+- **lint-staged** - Run linters on staged files
 
-## React Compiler
+## 📦 Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Install dependencies
+pnpm install
 
-## Expanding the ESLint configuration
+# Start development server
+pnpm dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Build for production
+pnpm build
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview production build
+pnpm preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧹 Code Quality
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Run ESLint
+pnpm lint
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Fix ESLint errors
+pnpm lint:fix
+
+# Format code with Prettier
+pnpm format
+
+# Check formatting
+pnpm format:check
 ```
 
-# Demo comment
+## 📝 Features
+
+- ✅ Create, complete, and delete todos
+- ✅ Task counter in header
+- ✅ Empty state with visual feedback
+- ✅ Smooth animations
+- ✅ Responsive design
+- ✅ Dark theme
+- ✅ Type-safe with TypeScript
+
+## 🎨 Project Structure
+
+```
+src/
+├── components/
+│   ├── TodoList.tsx      # Main todo list component
+│   └── TodoItem.tsx      # Individual todo item
+├── types/
+│   └── todo.ts           # TypeScript interfaces
+├── App.tsx               # Root component
+├── main.tsx              # App entry point
+└── index.css             # Global styles with Tailwind
+```
+
+## 🤝 Contributing
+
+1. Follow the conventional commits format
+2. Ensure code passes linting and formatting checks
+3. Write meaningful commit messages
+4. Test your changes before committing
+
+## 📄 License
+
+MIT
+
+---

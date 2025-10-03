@@ -1,12 +1,4 @@
-echo "Running commit message linting..."
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-commit_regex="^(feat|fix|docs|style|refactor|test|chore|ci|build|revert)(\(.+\))?: .{1,50}"
-
-if ! grep -qE "$commit_regex" "$1"; then
-    echo "❌ Commit message does not follow conventional commit format!"
-    echo "Expected format: type(scope): description"
-    echo "Examples: feat: add new feature, fix: resolve bug, docs: update README"
-    exit 1
-fi
-
-echo "✅ Commit message looks good!"
+pnpm commitlint --edit $1
