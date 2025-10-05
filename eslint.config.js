@@ -22,14 +22,14 @@ export default defineConfig([
         global: 'readonly',
         window: 'readonly',
         document: 'readonly',
-        navigator: 'readonly',
+        navigator: 'readonly'
       },
-      parser: tsParser,
+      parser: tsParser
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      'react-refresh': reactRefresh
     },
     rules: {
       ...reactHooks.configs['recommended-latest'].rules,
@@ -39,14 +39,15 @@ export default defineConfig([
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single'],
       semi: ['error', 'never'],
+      'comma-dangle': ['error', 'never'],
       'no-console': 'warn',
       // Turn off no-undef for TS to allow global DOM types like HTMLInputElement
       'no-undef': 'off',
       'no-unused-vars': 'off', // handled by TypeScript
-      '@typescript-eslint/no-unused-vars': ['error'],
-    },
+      '@typescript-eslint/no-unused-vars': ['error']
+    }
   },
   {
-    ignores: ['dist/**', 'node_modules/**'],
-  },
+    ignores: ['dist/**', 'node_modules/**']
+  }
 ])

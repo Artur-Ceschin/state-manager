@@ -1,20 +1,20 @@
-import { FormEvent, useRef } from 'react';
+import { FormEvent, useRef } from 'react'
 
-import { useGlobal } from '../contexts/GlobalContext';
-import { useRenderCounter } from '../hooks/useRenderCounter';
+import { useGlobal } from '../contexts/GlobalContext'
+import { useRenderCounter } from '../hooks/useRenderCounter'
 
 export function TodoForm() {
-  useRenderCounter('TodoForm');
+  useRenderCounter('TodoForm')
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const { addTodo } = useGlobal();
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const { addTodo } = useGlobal()
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+    event.preventDefault()
 
     if (inputRef.current?.value) {
-      addTodo(inputRef.current.value);
-      inputRef.current.value = '';
+      addTodo(inputRef.current.value)
+      inputRef.current.value = ''
     }
   }
 
@@ -33,5 +33,5 @@ export function TodoForm() {
         Enviar
       </button>
     </form>
-  );
+  )
 }

@@ -4,42 +4,42 @@ import {
   useContext,
   useMemo,
   useState,
-  type ReactNode,
-} from 'react';
+  type ReactNode
+} from 'react'
 
-import type { ITodo } from '../entities/ITodo';
-import type { IUser } from '../entities/IUser';
+import type { ITodo } from '../entities/ITodo'
+import type { IUser } from '../entities/IUser'
 
 interface IGlobalContextValue {
-  user: IUser | null;
-  login(): void;
-  logout(): void;
-  todos: ITodo[];
-  addTodo(title: string, author?: string): void;
-  toggleTodoDone(todoId: number): void;
-  removeTodo(todoId: number): void;
+  user: IUser | null
+  login(): void
+  logout(): void
+  todos: ITodo[]
+  addTodo(title: string, author?: string): void
+  toggleTodoDone(todoId: number): void
+  removeTodo(todoId: number): void
 }
 
-const GlobalContext = createContext({} as IGlobalContextValue);
+const GlobalContext = createContext({} as IGlobalContextValue)
 
 export function useGlobal() {
-  return useContext(GlobalContext);
+  return useContext(GlobalContext)
 }
 
 export function GlobalProvider({ children }: { children: ReactNode }) {
-  const [loggedUser, setLoggedUser] = useState<IUser | null>(null);
-  const [todos, setTodos] = useState<ITodo[]>([]);
+  const [loggedUser, setLoggedUser] = useState<IUser | null>(null)
+  const [todos, setTodos] = useState<ITodo[]>([])
 
   const login = useCallback(() => {
     setLoggedUser({
       email: 'arturceschin@test-gmail.com',
-      name: 'Artur Ceschin',
-    });
-  }, []);
+      name: 'Artur Ceschin'
+    })
+  }, [])
 
   const logout = useCallback(() => {
-    setLoggedUser(null);
-  }, []);
+    setLoggedUser(null)
+  }, [])
 
   const addTodo = useCallback(
     (title: string) => {
@@ -48,24 +48,24 @@ export function GlobalProvider({ children }: { children: ReactNode }) {
           id: Date.now(),
           title,
           author: loggedUser?.name ?? 'Convidado',
-          done: false,
-        }),
-      );
+          done: false
+        })
+      )
     },
-    [loggedUser?.name],
-  );
+    [loggedUser?.name]
+  )
 
   const toggleTodoDone = useCallback((todoId: number) => {
     setTodos((prevState) =>
       prevState.map((todo) =>
-        todo.id === todoId ? { ...todo, done: !todo.done } : todo,
-      ),
-    );
-  }, []);
+        todo.id === todoId ? { ...todo, done: !todo.done } : todo
+      )
+    )
+  }, [])
 
   const removeTodo = useCallback((todoId: number) => {
-    setTodos((prevState) => prevState.filter((todo) => todo.id !== todoId));
-  }, []);
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== todoId))
+  }, [])
 
   const contextValue = useMemo(
     () => ({
@@ -75,14 +75,14 @@ export function GlobalProvider({ children }: { children: ReactNode }) {
       todos,
       addTodo,
       toggleTodoDone,
-      removeTodo,
+      removeTodo
     }),
-    [loggedUser, login, logout, todos, addTodo, toggleTodoDone, removeTodo],
-  );
+    [loggedUser, login, logout, todos, addTodo, toggleTodoDone, removeTodo]
+  )
 
   return (
     <GlobalContext.Provider value={contextValue}>
       {children}
     </GlobalContext.Provider>
-  );
+  )
 }

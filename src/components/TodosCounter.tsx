@@ -1,13 +1,13 @@
-import { CircleOffIcon, LayoutListIcon } from 'lucide-react';
+import { CircleOffIcon, LayoutListIcon } from 'lucide-react'
 
-import { useGlobal } from '../contexts/GlobalContext';
-import { useRenderCounter } from '../hooks/useRenderCounter';
+import { useGlobal } from '../contexts/GlobalContext'
+import { useRenderCounter } from '../hooks/useRenderCounter'
 
 export function TodosCounter() {
-  useRenderCounter('TodosCounter');
+  useRenderCounter('TodosCounter')
 
-  const { todos } = useGlobal();
-  const totalTodos = todos.length;
+  const { todos } = useGlobal()
+  const totalTodos = todos.length
 
   return (
     <div className="flex items-center gap-2 rounded-lg bg-white/5 px-3 py-1.5 text-xs">
@@ -25,5 +25,5 @@ export function TodosCounter() {
         </>
       )}
     </div>
-  );
+  )
 }

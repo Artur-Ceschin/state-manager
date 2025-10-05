@@ -1,10 +1,10 @@
-import { useRenderCounter } from '../hooks/useRenderCounter';
+import { useRenderCounter } from '../hooks/useRenderCounter'
 
-import { TodosCounter } from './TodosCounter';
-import { UserMenu } from './UserMenu';
+import { TodosCounter } from './TodosCounter'
+import { UserMenu } from './UserMenu'
 
 export function AppBar() {
-  useRenderCounter('AppBar');
+  useRenderCounter('AppBar')
 
   return (
     <header className="sticky top-0 z-10 flex h-20 items-center justify-center border-b border-white/5 bg-zinc-950/70 px-6 backdrop-blur-sm">
@@ -16,5 +16,5 @@ export function AppBar() {
         <UserMenu />
       </div>
     </header>
-  );
+  )
 }

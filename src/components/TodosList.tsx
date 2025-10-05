@@ -3,19 +3,19 @@ import {
   CircleIcon,
   LeafIcon,
   Trash2Icon,
-  WindIcon,
-} from 'lucide-react';
+  WindIcon
+} from 'lucide-react'
 
-import { useGlobal } from '../contexts/GlobalContext';
-import { useRenderCounter } from '../hooks/useRenderCounter';
-import { cn } from '../utils/cn';
+import { useGlobal } from '../contexts/GlobalContext'
+import { useRenderCounter } from '../hooks/useRenderCounter'
+import { cn } from '../utils/cn'
 
-import { TodoForm } from './TodoForm';
+import { TodoForm } from './TodoForm'
 
 export function TodosList() {
-  useRenderCounter('TodosList');
+  useRenderCounter('TodosList')
 
-  const { todos, toggleTodoDone, removeTodo } = useGlobal();
+  const { todos, toggleTodoDone, removeTodo } = useGlobal()
 
   return (
     <div className="container mx-auto my-10 rounded-lg border border-white/5 p-6">
@@ -41,14 +41,14 @@ export function TodosList() {
               className={cn(
                 'flex items-center justify-between rounded-lg border border-white/5 p-4',
                 todo.done &&
-                  'border-green-400/10 bg-green-400/5 transition-colors',
+                  'border-green-400/10 bg-green-400/5 transition-colors'
               )}
             >
               <div>
                 <span
                   className={cn(
                     'flex items-center gap-2 text-lg transition-colors',
-                    todo.done && 'text-gray-500 italic line-through',
+                    todo.done && 'text-gray-500 italic line-through'
                   )}
                 >
                   {todo.title}
@@ -77,5 +77,5 @@ export function TodosList() {
         </ul>
       )}
     </div>
-  );
+  )
 }
