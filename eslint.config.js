@@ -40,6 +40,8 @@ export default defineConfig([
       quotes: ['error', 'single'],
       semi: ['error', 'never'],
       'no-console': 'warn',
+      // Turn off no-undef for TS to allow global DOM types like HTMLInputElement
+      'no-undef': 'off',
       'no-unused-vars': 'off', // handled by TypeScript
       '@typescript-eslint/no-unused-vars': ['error'],
     },
