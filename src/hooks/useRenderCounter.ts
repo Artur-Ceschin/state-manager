@@ -5,5 +5,5 @@ export function useRenderCounter(componentName: string) {
 
   counter.current += 1
 
-  console.log(`${componentName} rendered ${counter.current} times.`)
+  // console.log(`${componentName} rendered ${counter.current} times.`)
 }
