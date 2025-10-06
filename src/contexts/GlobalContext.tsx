@@ -47,7 +47,7 @@ export function GlobalProvider({ children }: { children: ReactNode }) {
         prevState.concat({
           id: Date.now(),
           title,
-          author: loggedUser?.name ?? 'Convidado',
+          author: loggedUser?.name ?? 'Guest',
           done: false
         })
       )
