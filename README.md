@@ -64,7 +64,9 @@ pnpm format:check
 // src/store/createStore.ts
 export function createStore<TState extends Record<string, any>>(
   createInitialState: (
-    setState: (partial: Partial<TState> | ((prev: TState) => Partial<TState>)) => void,
+    setState: (
+      partial: Partial<TState> | ((prev: TState) => Partial<TState>)
+    ) => void,
     getState: () => TState
   ) => TState
 ) {
@@ -79,18 +81,30 @@ export function createStore<TState extends Record<string, any>>(
 export const useGlobalStore = createStore((setState, getState) => ({
   user: null,
   todos: [],
-  login: () => setState({ user: { name: 'Artur Ceschin', email: 'arturceschin@test.com.br' } }),
+  login: () =>
+    setState({
+      user: { name: 'Artur Ceschin', email: 'arturceschin@test.com.br' }
+    }),
   logout: () => setState({ user: null }),
   addTodo: (title: string) => {
-    setState(prev => ({
-      todos: prev.todos.concat({ id: Date.now(), title, author: getState().user?.name ?? 'Guest', done: false })
+    setState((prev) => ({
+      todos: prev.todos.concat({
+        id: Date.now(),
+        title,
+        author: getState().user?.name ?? 'Guest',
+        done: false
+      })
     }))
   },
   toggleTodoDone: (todoId: number) => {
-    setState(prev => ({ todos: prev.todos.map(t => t.id === todoId ? { ...t, done: !t.done } : t) }))
+    setState((prev) => ({
+      todos: prev.todos.map((t) =>
+        t.id === todoId ? { ...t, done: !t.done } : t
+      )
+    }))
   },
   removeTodo: (todoId: number) => {
-    setState(prev => ({ todos: prev.todos.filter(t => t.id !== todoId) }))
+    setState((prev) => ({ todos: prev.todos.filter((t) => t.id !== todoId) }))
   }
 }))
 ```
@@ -99,9 +113,9 @@ export const useGlobalStore = createStore((setState, getState) => ({
 
 ```tsx
 // src/components/TodosList.tsx
-const todos = useGlobalStore(state => state.todos)
-const toggleTodoDone = useGlobalStore(state => state.toggleTodoDone)
-const removeTodo = useGlobalStore(state => state.removeTodo)
+const todos = useGlobalStore((state) => state.todos)
+const toggleTodoDone = useGlobalStore((state) => state.toggleTodoDone)
+const removeTodo = useGlobalStore((state) => state.removeTodo)
 ```
 
 ## 🎥 Follow along with the video

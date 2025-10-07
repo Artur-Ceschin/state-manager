@@ -22,7 +22,7 @@ export function TodoForm() {
     <form className="flex gap-4" onSubmit={handleSubmit}>
       <input
         className="h-12 w-full rounded-lg bg-white/5 px-4 transition-all outline-none focus:ring-1 focus:ring-white"
-        placeholder="Título da tarefa..."
+        placeholder="Task title..."
         ref={inputRef}
       />
 
@@ -30,7 +30,7 @@ export function TodoForm() {
         type="submit"
         className="rounded-lg bg-white px-6 font-semibold text-zinc-950 transition-opacity hover:opacity-90"
       >
-        Enviar
+        Submit
       </button>
     </form>
   )

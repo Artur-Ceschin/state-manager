@@ -15,7 +15,7 @@ export function UserMenu() {
         className="rounded-lg border border-white px-6 py-2 text-sm text-white transition-colors hover:bg-white/10"
         onClick={login}
       >
-        Entrar
+        Sign in
       </button>
     )
   }
@@ -23,13 +23,13 @@ export function UserMenu() {
   return (
     <div className="flex items-center gap-4">
       <div className="flex flex-col items-end gap-1 text-right">
-        <span className="block text-sm text-zinc-500">Olá, {user.name}!</span>
+        <span className="block text-sm text-zinc-500">Hello, {user.name}!</span>
         <button
           type="button"
           className="flex items-center gap-1.5 text-sm text-red-500 transition-colors hover:text-red-400"
           onClick={logout}
         >
-          Sair <LogOutIcon className="h-4 w-4" />
+          Sign out <LogOutIcon className="h-4 w-4" />
         </button>
       </div>
 
