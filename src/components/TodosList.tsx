@@ -31,7 +31,7 @@ export function TodosList() {
             <WindIcon className="h-10 w-10" />
             <LeafIcon className="h-5 w-5" />
           </div>
-          <span className="opacity-70">Nenhuma tarefa criada!</span>
+          <span className="opacity-70">No tasks created!</span>
         </div>
       )}
 
@@ -55,7 +55,7 @@ export function TodosList() {
                 >
                   {todo.title}
                 </span>
-                <small className="text-zinc-500">Por {todo.author}</small>
+                <small className="text-zinc-500">By {todo.author}</small>
               </div>
 
               <div className="space-x-4">

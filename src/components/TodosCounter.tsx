@@ -14,14 +14,14 @@ export function TodosCounter() {
       {totalTodos === 0 && (
         <>
           <CircleOffIcon className="h-4 w-4" />
-          <span>Nenhuma tarefa cadastrada!</span>
+          <span>No tasks registered!</span>
         </>
       )}
 
       {totalTodos > 0 && (
         <>
           <LayoutListIcon className="h-4 w-4" />
-          <span>Número de Tarefas: {totalTodos}</span>
+          <span>Tasks: {totalTodos}</span>
         </>
       )}
     </div>
